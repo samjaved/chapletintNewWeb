@@ -1,0 +1,151 @@
+<div class="main__left__area">
+    <div class="left__area">
+        <div class="left__menu__icon dropdown">
+            <img src="images/menu-icon.png" alt="Menu Icon" data-toggle="dropdown">
+            <ul class="dropdown-menu sub__menu" style="display: none;">
+                {%  if categories is defined %}
+                {% for category in categories %}
+                    <li class="li-nv-l">
+                        <a href="product.html" class="drop-link">{{ category.translate.getName() }}</a>
+                    </li>
+                {% endfor %}
+                {%  endif %}
+
+            </ul>
+        </div>
+        <div class="top__left__social__icons">
+            <ul>
+                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="right__area">
+        <header>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="logo">
+                            <a href="#"><img src="images/logo.png" alt="Chaplet International" /></a>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <nav class="navbar navbar-expand-md navbar-dark">
+                            <div class="collapse navbar-collapse nav-hidden" id="navbar">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="index.html">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="about-us.html">About Us</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link"  data-toggle="dropdown" href="#"><i class="fas fa-chevron-down"></i> Products</a>
+                                        <ul class="dropdown-menu sub__menu" style="display: none;">
+                                            {%  if categories is defined %}
+                                            {% for category in categories %}
+                                                <li class="li-nv-l">
+                                                    <a href="product.html" class="drop-link">{{ category.translate.getName() }}</a>
+                                                </li>
+                                            {% endfor %}
+                                            {% endif %}
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Catelogues</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link" data-toggle="dropdown" href="#"><i class="fas fa-chevron-down"></i> News</a>
+                                        <ul class="dropdown-menu sub__menu" style="display: none;">
+                                            <li class="li-nv-l">
+                                                <a href="#" class="drop-link">Events</a>
+                                            </li>
+                                            <li class="li-nv-l">
+                                                <a href="#" class="drop-link">Trade fares</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="contact-us.html">Contact Us</a>
+                                    </li>
+                                    <li class="nav-item f__bold">
+                                        <a class="nav-link" href="#">Login</a>
+                                    </li>
+                                    <li class="nav-item f__bold">
+                                        <a class="nav-link" href="#">Register</a>
+                                    </li>
+                                    <div class="language__main dropdown" >
+                                        <a href="#" data-toggle="dropdown">
+                                            <div class="language__icon">
+                                                <img src="images/eng-icon.png" alt="Icon">
+                                                <i class="fas fa-chevron-down"></i>
+                                            </div>
+                                            <p>English</p>
+                                        </a>
+                                        <ul class="dropdown-menu sub__menu language__menu" style="display: none;">
+                                            <li class="li-nv-l">
+                                                <a href="#" class="drop-link"><img src="images/eng-icon.png" alt="Icon"> Dutch</a>
+                                            </li>
+                                            <li class="li-nv-l">
+                                                <a href="#" class="drop-link"><img src="images/eng-icon.png" alt="Icon"> French</a>
+                                            </li>
+                                            <li class="li-nv-l">
+                                                <a href="#" class="drop-link"><img src="images/eng-icon.png" alt="Icon"> Chinees</a>
+                                            </li>
+                                            <li class="li-nv-l">
+                                                <a href="#" class="drop-link"><img src="images/eng-icon.png" alt="Icon"> Dutch</a>
+                                            </li>
+                                            <li class="li-nv-l">
+                                                <a href="#" class="drop-link"><img src="images/eng-icon.png" alt="Icon"> French</a>
+                                            </li>
+                                            <li class="li-nv-l">
+                                                <a href="#" class="drop-link"><img src="images/eng-icon.png" alt="Icon"> Chinees</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#" id="search__button__open"><img src="images/Icon-search.svg" alt="Search Icon"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+            <div id="search__main">
+                <form action="#" method="post">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                    <input type="text" name="search" id="search" placeholder="Search...">
+                    <button type="button" id="search__button__close"><i class="far fa-times-circle"></i></button>
+                </form>
+            </div>
+        </header>
+        <div id="overly__div"></div>
+
+
+
+        <section class="banner__mianarea">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="banner__mian">
+                                <div class="banner__image bounceInRight animated">
+                                    <img src="images/min-banner-image.png" alt="Banner Image" />
+                                </div>
+                                <div class="banner__text bounceInLeft animated">
+                                    <h1>We Provide <span>Great Solutions</span></h1>
+                                    <p>With high-quality materials, supervision of R&D field experts, with the combination of innovative minds, we provide excellent solutions for CSSD. We are continuously expanding our horizons, and soon Chaplet International will become the central hub that will fulfil all the Hospitals and CSSD requirements.</p>
+                                    <a href="#">Find out more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

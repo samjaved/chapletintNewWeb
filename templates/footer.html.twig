@@ -1,0 +1,82 @@
+<footer>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="footer__col__main">
+                        <div class="footer__col__20">
+                            <div class="footer__main">
+                                <h3><i class="far fa-envelope"></i> Email</h3>
+                                <ul>
+                                    {% if firstEmail is defined %}
+                                        <li><a href="mailto:export@chapletint.com">{{ firstEmail }}</a></li>
+                                    {% endif %}
+                                    {% if secondEmail is defined %}
+                                        <li><a href="mailto:info@chapletint.com">{{ secondEmail }}</a></li>
+                                    {% endif %}
+                                    <div class="footer__social__icon">
+                                        <a href="#"><i class="fab fa-facebook"></i></a>
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="footer__col__20">
+                            <div class="footer__main">
+                                <h3><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="phone-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-phone-alt fa-w-16 fa-3x"><path fill="currentColor" d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z" class=""></path></svg> Phone</h3>
+                                <ul>
+                                    {%  if phoneNumber is defined %}
+                                        <li><a href="tel:+92 42 3540 3317-21">Tel: {{ phoneNumber }}</a></li>
+                                    {% endif %}
+                                    {% if fax  is defined %}
+                                        <li><a href="tel:Fax: +92 42 3540 3316">Fax: {{ fax }}</a></li>
+                                    {% endif %}
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="footer__col__20">
+                            <div class="footer__main">
+                                <h3><i class="fas fa-map-marker-alt"></i> Head Office</h3>
+                                {% if address is defined %}
+                                <ul>
+                                    <p>{{ address }}</p>
+                                </ul>
+                                {%  endif %}
+                            </div>
+                        </div>
+                        <div class="footer__col__20">
+                            <div class="footer__main">
+                                <h3><i class="fas fa-book-medical"></i> Catalogues</h3>
+                                <ul>
+                                    <li><a href="#">Holloware Catalogue</a></li>
+                                    <li><a href="#">Surgical Catalogue</a></li>
+                                    <li><a href="#">Dental Catalogue</a></li>
+                                    <li><a href="#">Beauty Catalogue</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="footer__col__20">
+                            <div class="footer__main">
+                                <h3><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="shield-check" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-shield-check fa-w-16 fa-3x"><path fill="currentColor" d="M163.2 230.5c-4.7-4.7-12.3-4.7-17-.1l-22.7 22.5c-4.7 4.7-4.7 12.3-.1 17l90.8 91.5c4.7 4.7 12.3 4.7 17 .1l172.6-171.2c4.7-4.7 4.7-12.3.1-17l-22.5-22.7c-4.7-4.7-12.3-4.7-17-.1L223 290.7zM466.5 83.7l-192-80a48.15 48.15 0 0 0-36.9 0l-192 80C27.7 91.1 16 108.6 16 128c0 198.5 114.5 335.7 221.5 380.3 11.8 4.9 25.1 4.9 36.9 0C360.1 472.6 496 349.3 496 128c0-19.4-11.7-36.9-29.5-44.3zM256 464C158.5 423.4 64 297.3 64 128l192-80 192 80c0 173.8-98.4 297-192 336z" class=""></path></svg> Customer Services</h3>
+                                <ul>
+                                    <li><a href="#">Warranty</a></li>
+                                    <li><a href="#">Return Policy</a></li>
+                                    <li><a href="#">Shipping</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                    <li><a href="#">Terms & Conditions</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer__copyright">
+        <p>© 2021 Chaplet. All rights reserved. <a href="#">Privacy Statement</a></p>
+    </div>
+</footer>

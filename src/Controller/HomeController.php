@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\CategoryRepository;
 use App\Repository\FooterDataRepository;
+use Psr\Container\ContainerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,7 +19,11 @@ class HomeController extends AbstractController
 
     private CategoryRepository $categoryRepository;
 
-    public function __construct(FooterDataRepository $footerDataRepository, CategoryRepository $categoryRepository)
+
+    public function __construct(
+        FooterDataRepository $footerDataRepository,
+        CategoryRepository $categoryRepository
+    )
     {
         $this->footerDataRepository = $footerDataRepository;
         $this->categoryRepository = $categoryRepository;
@@ -33,9 +38,17 @@ class HomeController extends AbstractController
     {
         $footerData = $this->footerDataRepository->findAll();
         $categories = $this->categoryRepository->findAll();
+        $availableLanguages = $this->getParameter('languages');
+
+        if (($key = array_search($request->getLocale(), $availableLanguages)) !== false) {
+            unset($availableLanguages[$key]);
+        }
+
         return $this->render('index.html.twig',[
             'footerData' => $footerData,
-            'categories' => $categories
+            'categories' => $categories,
+            'locale' => $request->getLocale(),
+            'availableLanguages' => $availableLanguages
         ]);
     }
 }

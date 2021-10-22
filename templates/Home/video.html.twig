@@ -1,0 +1,26 @@
+<section class="video__mainarea">
+    <div class="video__left">
+        <div class="top__left__social__icons">
+            <ul>
+                {%  if socialMediaLinks.getfackebookLink() is defined and socialMediaLinks.getfackebookLink()  is not null  %}
+                    <li><a target="_blank" href="{{ socialMediaLinks.getfackebookLink() }}"><i class="fab fa-facebook"></i></a></li>
+                {% endif %}
+                {%  if socialMediaLinks.getInstagramLink() is defined and socialMediaLinks.getInstagramLink()  is not null %}
+                    <li><a target="_blank" href="{{ socialMediaLinks.getInstagramLink() }}"><i class="fab fa-instagram"></i></a></li>
+                {% endif %}
+                {%  if socialMediaLinks.getLinkedinLink() is defined and socialMediaLinks.getLinkedinLink()  is not null %}
+                    <li><a  target="_blank" href="{{ socialMediaLinks.getLinkedinLink() }}"><i class="fab fa-linkedin-in"></i></a></li>
+                {% endif %}
+                {%  if socialMediaLinks.getTwitterLink() is defined  and socialMediaLinks.getTwitterLink() is not null %}
+                    <li><a target="_blank" href="{{ socialMediaLinks.getTwitterLink() }}"><i class="fab fa-twitter"></i></a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    <div class="video__main">
+        <video width="100%" height="900" poster="{{ asset('images/video/poster.png') }}" controls>
+            <source src="{{ videoLink }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</section>

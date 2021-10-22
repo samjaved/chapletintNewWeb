@@ -3,7 +3,7 @@
         <div class="left__menu__icon dropdown">
             <img src="{{ asset('images/menu-icon.png') }}" alt="Menu Icon" data-toggle="dropdown">
             <ul class="dropdown-menu sub__menu" style="display: none;">
-                {%  if categories is defined %}
+                {%  if categories is defined and categories is not empty %}
                 {% for category in categories %}
                     <li class="li-nv-l">
                         <a href="product.html" class="drop-link">{{ category.translate.getName() }}</a>
@@ -13,14 +13,24 @@
 
             </ul>
         </div>
+        {%  if socialMediaLinks is defined and socialMediaLinks is not empty %}
         <div class="top__left__social__icons">
             <ul>
-                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    {%  if socialMediaLinks.getfackebookLink() is defined and socialMediaLinks.getfackebookLink()  is not null  %}
+                    <li><a target="_blank" href="{{ socialMediaLinks.getfackebookLink() }}"><i class="fab fa-facebook"></i></a></li>
+                    {% endif %}
+                    {%  if socialMediaLinks.getInstagramLink() is defined and socialMediaLinks.getInstagramLink()  is not null %}
+                    <li><a target="_blank" href="{{ socialMediaLinks.getInstagramLink() }}"><i class="fab fa-instagram"></i></a></li>
+                    {% endif %}
+                    {%  if socialMediaLinks.getLinkedinLink() is defined and socialMediaLinks.getLinkedinLink()  is not null %}
+                    <li><a  target="_blank" href="{{ socialMediaLinks.getLinkedinLink() }}"><i class="fab fa-linkedin-in"></i></a></li>
+                    {% endif %}
+                    {%  if socialMediaLinks.getTwitterLink() is defined  and socialMediaLinks.getTwitterLink() is not null %}
+                    <li><a target="_blank" href="{{ socialMediaLinks.getTwitterLink() }}"><i class="fab fa-twitter"></i></a></li>
+                    {% endif %}
             </ul>
         </div>
+        {%  endif %}
     </div>
     <div class="right__area">
         <header>

@@ -15,4 +15,25 @@ class ProductsSizeRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Size::class);
     }
+
+    /**
+     * @throws OptimisticLockException
+     * @throws ORMException
+     */
+    public function saveSize(Size $size)
+    {
+        $entityManager = $this->getEntityManager();
+        $entityManager->persist($size);
+        $entityManager->flush();
+    }
+
+    /**
+     * @throws OptimisticLockException
+     * @throws ORMException
+     */
+    public function removeSize(Size $size){
+        $entityManager = $this->getEntityManager();
+        $entityManager->remove($size);
+        $entityManager->flush();
+    }
 }

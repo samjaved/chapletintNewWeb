@@ -1,0 +1,9 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+    {%  if categories is defined and categories is not empty %}
+    {%  include '/Home/productListing.html.twig' %}
+    {%  endif %}
+    {%  if videoLink is defined and videoLink is not empty %}
+        {%  include '/Home/video.html.twig' %}
+    {%  endif %}
+{% endblock %}

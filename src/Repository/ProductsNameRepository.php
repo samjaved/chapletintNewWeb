@@ -17,4 +17,24 @@ class ProductsNameRepository extends ServiceEntityRepository
         parent::__construct($registry, ProductName::class);
     }
 
+    /**
+     * @throws OptimisticLockException
+     * @throws ORMException
+     */
+    public function saveName(ProductName $productName)
+    {
+        $entityManager = $this->getEntityManager();
+        $entityManager->persist($productName);
+        $entityManager->flush();
+    }
+
+    /**
+     * @throws OptimisticLockException
+     * @throws ORMException
+     */
+    public function removeName(ProductName $productName){
+        $entityManager = $this->getEntityManager();
+        $entityManager->remove($productName);
+        $entityManager->flush();
+    }
 }

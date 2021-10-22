@@ -24,12 +24,33 @@ class Category implements TimestampableInterface,  TranslatableInterface
     private $subCategory;
 
     /**
+     * @return mixed
+     */
+    public function getImageName()
+    {
+        return $this->imageName;
+    }
+
+    /**
+     * @param mixed $imageName
+     */
+    public function setImageName($imageName): void
+    {
+        $this->imageName = $imageName;
+    }
+
+    /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
     private $id;
 
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $imageName;
 
     public function getId(): ?int
     {

@@ -2,29 +2,30 @@
 
 namespace App\Repository;
 
-use App\Entity\Category;
-use App\Entity\User;
+use App\Entity\ProductItemCode;
+use App\Entity\ProductName;
+use App\Entity\Size;
+use App\Entity\SubCategory;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
-class CategoryRepository extends ServiceEntityRepository
+class ProductsItemCodesRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Category::class);
+        parent::__construct($registry, ProductItemCode::class);
     }
 
     /**
      * @throws OptimisticLockException
      * @throws ORMException
      */
-    public function saveCategory(Category $category)
+    public function saveCode(ProductItemCode $productItemCode)
     {
         $entityManager = $this->getEntityManager();
-        $entityManager->persist($category);
+        $entityManager->persist($productItemCode);
         $entityManager->flush();
     }
 
@@ -32,10 +33,9 @@ class CategoryRepository extends ServiceEntityRepository
      * @throws OptimisticLockException
      * @throws ORMException
      */
-    public function removeCategory(Category $category)
-    {
+    public function removeCode(ProductItemCode $productItemCode){
         $entityManager = $this->getEntityManager();
-        $entityManager->remove($category);
+        $entityManager->remove($productItemCode);
         $entityManager->flush();
     }
 }

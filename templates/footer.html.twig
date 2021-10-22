@@ -15,10 +15,18 @@
                                         <li><a href="mailto:info@chapletint.com">{{ footerData[0].secondEmail }}</a></li>
                                     {% endif %}
                                     <div class="footer__social__icon">
-                                        <a href="#"><i class="fab fa-facebook"></i></a>
-                                        <a href="#"><i class="fab fa-instagram"></i></a>
-                                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                        {%  if socialMediaLinks.getfackebookLink() is defined and socialMediaLinks.getfackebookLink()  is not null  %}
+                                        <a target="_blank" href="{{ socialMediaLinks.getfackebookLink() }}"><i class="fab fa-facebook"></i></a>
+                                        {% endif %}
+                                        {%  if socialMediaLinks.getInstagramLink() is defined and socialMediaLinks.getInstagramLink()  is not null %}
+                                        <a target="_blank" href="{{ socialMediaLinks.getInstagramLink() }}"><i class="fab fa-instagram"></i></a>
+                                        {% endif %}
+                                        {%  if socialMediaLinks.getLinkedinLink() is defined and socialMediaLinks.getLinkedinLink()  is not null %}
+                                        <a target="_blank" href="{{ socialMediaLinks.getLinkedinLink() }}"><i class="fab fa-linkedin-in"></i></a>
+                                        {% endif %}
+                                        {%  if socialMediaLinks.getTwitterLink() is defined  and socialMediaLinks.getTwitterLink() is not null %}
+                                        <a  target="_blank" href="{{ socialMediaLinks.getTwitterLink() }}"><i class="fab fa-twitter"></i></a>
+                                        {% endif %}
                                     </div>
                                 </ul>
                             </div>

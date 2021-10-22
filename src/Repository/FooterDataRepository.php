@@ -18,4 +18,15 @@ class FooterDataRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, FooterData::class);
     }
+
+    /**
+     * @throws OptimisticLockException
+     * @throws ORMException
+     */
+    public function saveFooterData(FooterData $footerData)
+    {
+        $entityManager = $this->getEntityManager();
+        $entityManager->persist($footerData);
+        $entityManager->flush();
+    }
 }

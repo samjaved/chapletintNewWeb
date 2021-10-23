@@ -1,0 +1,73 @@
+{% extends 'Product/layout.html.twig' %}
+{% block content %}
+    <section class="product__heading__mian">
+        <h1>Our Products</h1>
+        <div class="products__divider__image">
+            <img src="{{ asset('images/line-image.png') }}" width="100%" />
+        </div>
+    </section>
+    <section class="product__mainarea">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        {% include 'Product/sideMenu.html.twig' %}
+                    </div>
+                    <div class="col-md-9">
+                        {%  include 'Product/filters.html.twig' %}
+                        {% if selectedCategory.getSubcategory() is defined and selectedCategory.getSubcategory() is not empty %}
+                            {%  include 'Product/productList.html.twig' %}
+                        {% else %}
+                            <p> No Product</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="left__menu__event__mina">
+                            <h1>Want to know About the Latest Event?</h1>
+                            <a href="#">Click the link here to get New Updates</a>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="product__box__pagination">
+                            <div class="product__filter__bottom">
+                                <p>Items 1 to 24 of 107 total</p>
+                            </div>
+                            <div class="product__filter__bottom">
+                                <p>Show</p>
+                                <select name="perpage" id="perpage">
+                                    <option value="24">24</option>
+                                    <option value="16">16</option>
+                                    <option value="12">12</option>
+                                </select>
+                                <p>24 per page</p>
+                            </div>
+                            <div class="product__filter__bottom">
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination">
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-circle-left"></i></a>
+                                        </li>
+                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#"><i class="fas fa-chevron-circle-right"></i></a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

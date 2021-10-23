@@ -1,0 +1,38 @@
+<div class="row">
+    {% for subCategory in selectedCategory.getSubcategory() %}
+    <div class="col-md-3">
+<div class="product__card__mian">
+    <div class="product__card__image">
+        <a href="#"><img src="{{ asset('images/subcategories/')~subCategory.getImage1()  }}" alt="{{subCategory.translate.getName()}}"></a>
+        <a href="#"><div class="product__card__image__overly"></div></a>
+    </div>
+    <div class="product__card__text">
+        <div class="product__card__title">
+            <a href="#"><h3>{{subCategory.translate.getName()  }}</h3></a>
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="product__card__detail">
+            <ul>
+                {%  set shortDescription = subCategory.translate.getShortDescription()|split(',') %}
+                {% if shortDescription[0] is defined%}
+                 <li>{{shortDescription[0]  }}</li>
+                {% endif %}
+                {% if shortDescription[1] is defined %}
+                    <li>{{shortDescription[1]  }}</li>
+                {% endif %}
+                {% if shortDescription[2] is defined%}
+                    <li>{{shortDescription[2]  }}</li>
+                {% endif %}
+                {% if shortDescription[3] is defined %}
+                    <li>{{shortDescription[3]  }}</li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+   {# <div class="new__tag">
+        New
+    </div>#}
+        </div>
+    </div>
+    {% endfor %}
+</div>

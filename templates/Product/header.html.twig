@@ -1,0 +1,54 @@
+<div class="main__left__area">
+    <div class="left__area">
+        <div class="left__menu__icon dropdown">
+            <img src="{{ asset('images/menu-icon.png') }}" alt="Menu Icon" data-toggle="dropdown">
+            <ul class="dropdown-menu sub__menu" style="display: none;">
+                {%  if categories is defined and categories is not empty %}
+                {% for category in categories %}
+                    <li class="li-nv-l">
+                        <a href="product.html" class="drop-link">{{ category.translate.getName() }}</a>
+                    </li>
+                {% endfor %}
+                {%  endif %}
+
+            </ul>
+        </div>
+        {%  if socialMediaLinks is defined and socialMediaLinks is not empty %}
+        <div class="top__left__social__icons">
+            <ul>
+                    {%  if socialMediaLinks.getfackebookLink() is defined and socialMediaLinks.getfackebookLink()  is not null  %}
+                    <li><a target="_blank" href="{{ socialMediaLinks.getfackebookLink() }}"><i class="fab fa-facebook"></i></a></li>
+                    {% endif %}
+                    {%  if socialMediaLinks.getInstagramLink() is defined and socialMediaLinks.getInstagramLink()  is not null %}
+                    <li><a target="_blank" href="{{ socialMediaLinks.getInstagramLink() }}"><i class="fab fa-instagram"></i></a></li>
+                    {% endif %}
+                    {%  if socialMediaLinks.getLinkedinLink() is defined and socialMediaLinks.getLinkedinLink()  is not null %}
+                    <li><a  target="_blank" href="{{ socialMediaLinks.getLinkedinLink() }}"><i class="fab fa-linkedin-in"></i></a></li>
+                    {% endif %}
+                    {%  if socialMediaLinks.getTwitterLink() is defined  and socialMediaLinks.getTwitterLink() is not null %}
+                    <li><a target="_blank" href="{{ socialMediaLinks.getTwitterLink() }}"><i class="fab fa-twitter"></i></a></li>
+                    {% endif %}
+            </ul>
+        </div>
+        {%  endif %}
+    </div>
+    <div class="right__area">
+        <header>
+           {% include('nav.html.twig') %}
+        </header>
+        <div id="overly__div"></div>
+        <section class="page__title__mianarea">
+            <div class="page__title__mian product__page__title" style="background-image: url('{{ asset('images/categories/')~selectedCategory.getImageName()  }}');">
+                <h1>Surgical and Dental Instruments</h1>
+                <img src="{{ asset('images/title-line.png') }}" alt="About Us" >
+            </div>
+            <div class="breadcrumb__main">
+                <ul>
+                    <li><a href="{{ path('home') }}"><i class="fas fa-home"></i> Home</a></li>
+                    <li>></li>
+                    <li>{{  selectedCategory.translate.getName() }}</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="product__left__menu">
+    <div id="accordion">
+        {% for category in categories %}
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link"  data-toggle="collapse" data-target="{{ '#collapseOne'~category.getId() }}" aria-expanded="true" aria-controls="{{'collapseOne'~category.getId() }}">
+                        {{ category.translate.getName()}} <i class="fas fa-chevron-down"></i>
+                    </button>
+                </h5>
+            </div>
+            <div id="{{ 'collapseOne'~category.getId() }}" class="{{ category.getId() == selectedCategory.getId() ? 'collapse show' : 'collapse' }}" aria-labelledby="headingOne" data-parent="#accordion">
+                {% if category.getSubcategory() is defined and category.getSubcategory() is not empty %}
+                <div class="card-body">
+                    <ul>
+                    {% for subCategory in category.getSubcategory() %}
+                        <li><a href="#">{{ subCategory.translate.getName() }}</a></li>
+                    {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {%  endfor %}
+
+
+    </div>
+</div>
